@@ -64,8 +64,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "lint": "eslint src",
-    "lint-fix": "eslint src --quiet --fix"
+    "lint": "eslint --ext=js,jsx,ts,tsx src",
+    "lint-fix": "eslint --fix --ext=js,jsx,ts,tsx src"
   },
   "husky": {
     "hooks": {

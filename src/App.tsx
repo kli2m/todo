@@ -1,8 +1,8 @@
-import React from 'react';
-import List from './components/List/List';
+import React, { ReactElement } from 'react';
+import { List } from 'components';
 import './App.scss';
 
-function App() {
+function App(): ReactElement {
   return (
     <div className="container">
       <div className="header">

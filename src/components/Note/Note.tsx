@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import './Note.scss';
 
-const Note = () => {
-  const [isDone, setIsDone] = useState(false);
+const Note = (): ReactElement => {
+  const [isDone, setIsDone] = useState<boolean>(false);
 
   const inputClass = isDone ? 'done' : 'active';
 
-  const onHanderClick = () => {
+  const onHanderClick = (): void => {
     setIsDone(!isDone);
   };
 

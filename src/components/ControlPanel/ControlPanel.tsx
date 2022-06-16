@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import './ControlPanel.scss';
 
-const ControlPanel = () => {
+const ControlPanel = (): ReactElement => {
   const [toggle, setToggle] = useState<string>('All');
 
-  useEffect(() => {
-    console.log(toggle);
-  }, [toggle]);
-
-  const handleChangeToggle = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeToggle = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setToggle(event.target.value);
   };
 

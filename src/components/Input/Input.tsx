@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import './Input.scss';
 
-const Input = () => (
+const Input = (): ReactElement => (
   <div className="input">
     <div className="input__icon-block">
       <div className="input__icon-block_icon"></div>

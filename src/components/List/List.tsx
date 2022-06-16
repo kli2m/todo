@@ -1,11 +1,17 @@
-import React from 'react';
-import Input from '../Input/Input';
+import React, { ReactElement } from 'react';
+import { Input, Note, ControlPanel } from 'components';
+
 import './List.scss';
 
-const List = () => (
+const List = (): ReactElement => (
   <div className="list">
     <Input></Input>
-    <div className="list__items"></div>
+    <div className="list__items">
+      <Note></Note>
+      <Note></Note>
+      <Note></Note>
+    </div>
+    <ControlPanel></ControlPanel>
   </div>
 );
 

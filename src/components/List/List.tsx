@@ -11,13 +11,22 @@ const List = (): ReactElement => {
     setNotes(notes.concat(newNote));
   };
 
+  const onHandlerClickByNote = (index: number, isFinished: boolean): void => {
+    setNotes(notes.map((note, i) => (i === index ? { ...note, isFinished: !isFinished } : note)));
+  };
+
   return (
     <div className="list">
       <Input saveNote={saveNote}></Input>
       <div className="list__items">
         {notes.map(
           (note, index): ReactElement => (
-            <Note key={`${note} + ${index}`} note={note} />
+            <Note
+              key={`${note} + ${index}`}
+              note={note}
+              index={index}
+              onHandlerClickByNote={onHandlerClickByNote}
+            />
           ),
         )}
       </div>

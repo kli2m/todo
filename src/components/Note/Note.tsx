@@ -1,16 +1,21 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { Todo } from 'interfaces/Todo';
 import './Note.scss';
 
 interface NoteType {
   note: Todo;
+  index: number;
+  onHandlerClickByNote: (index: number, isFinished: boolean) => void;
 }
 
 const Note: React.FC<NoteType> = (props): ReactElement => {
-  const { text, isFinished } = props.note;
+  const { index, onHandlerClickByNote, note } = props;
+  const { text, isFinished } = note;
 
   const [isDone, setIsDone] = useState<boolean>(isFinished);
-
+  useEffect(() => {
+    onHandlerClickByNote(index, isDone);
+  }, [isDone]);
   const inputClass = isDone ? 'done' : 'active';
 
   const onHanderClick = (): void => {

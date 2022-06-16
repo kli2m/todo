@@ -13,8 +13,9 @@ const Input: React.FC<InputType> = (props): ReactElement => {
 
   const onHandlerSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    saveNote(text);
-    if (inputRef.current !== null) {
+
+    if (inputRef.current !== null && inputRef.current.value !== '') {
+      saveNote(text);
       inputRef.current.value = '';
     }
   };

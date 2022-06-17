@@ -25,7 +25,7 @@ const Note: React.FC<NoteType> = (props): ReactElement => {
     <div className="note" onClick={() => onHanderClick()}>
       <div className="note__icon-block">
         {note.isFinished && <div className="note__icon-block_icon"></div>}
-      </div>w
+      </div>
       <p className={`note__text ${inputClass}`}>{note.text}</p>
     </div>
   );

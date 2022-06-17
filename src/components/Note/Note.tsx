@@ -10,11 +10,11 @@ interface NoteType {
 
 const Note: React.FC<NoteType> = (props): ReactElement => {
   const { index, onHandlerClickByNote, note } = props;
-  const { text, isFinished } = note;
+  // const { text, isFinished } = note;
 
-  const [isDone, setIsDone] = useState<boolean>(isFinished);
+  const [isDone, setIsDone] = useState<boolean>(note.isFinished);
 
-  const inputClass: string = isFinished ? 'done' : 'active';
+  const inputClass: string = note.isFinished ? 'done' : 'active';
 
   const onHanderClick = (): void => {
     setIsDone(!isDone);
@@ -24,9 +24,9 @@ const Note: React.FC<NoteType> = (props): ReactElement => {
   return (
     <div className="note" onClick={() => onHanderClick()}>
       <div className="note__icon-block">
-        {isFinished && <div className="note__icon-block_icon"></div>}
-      </div>
-      <p className={`note__text ${inputClass}`}>{text}</p>
+        {note.isFinished && <div className="note__icon-block_icon"></div>}
+      </div>w
+      <p className={`note__text ${inputClass}`}>{note.text}</p>
     </div>
   );
 };

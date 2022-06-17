@@ -89,6 +89,10 @@
     ]
   },
   "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
     "roots": [
       "<rootDir>/src"
     ],

@@ -1,19 +1,19 @@
 import React, { ReactElement } from 'react';
-import { Todo } from 'interfaces/Todo';
 import './ControlPanel.scss';
 
 interface ControlPanelType {
-  notes: Todo[];
+  notesLeft: number;
   toggle: string;
   handlerChangeToggle: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handlerClickClear: () => void;
 }
 
 const ControlPanel: React.FC<ControlPanelType> = (props): ReactElement => {
-  const { notes, toggle, handlerChangeToggle } = props;
+  const { notesLeft, toggle, handlerChangeToggle, handlerClickClear } = props;
   return (
     <div className="control">
       <div className="control__info-mess">
-        <span>{notes.length} items left</span>
+        <span>{notesLeft} items left</span>
       </div>
       <div className="control__sort-box">
         <div className="control__sort-box_item all">
@@ -51,7 +51,9 @@ const ControlPanel: React.FC<ControlPanelType> = (props): ReactElement => {
         </div>
       </div>
       <div className="control__clear">
-        <button className="control__clear_btn" >Clear completed</button>
+        <button className="control__clear_btn" onClick={() => handlerClickClear()}>
+          Clear completed
+        </button>
       </div>
     </div>
   );

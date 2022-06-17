@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { Todo } from 'interfaces/Todo';
 import './Note.scss';
 
@@ -13,8 +13,8 @@ const Note: React.FC<NoteType> = (props): ReactElement => {
   const { text, isFinished } = note;
 
   const [isDone, setIsDone] = useState<boolean>(isFinished);
-  useEffect(() => {});
-  const inputClass = isFinished ? 'done' : 'active';
+
+  const inputClass: string = isFinished ? 'done' : 'active';
 
   const onHanderClick = (): void => {
     setIsDone(!isDone);

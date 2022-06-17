@@ -25,6 +25,11 @@ const List = (): ReactElement => {
   const handlerChangeToggle = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setToggle(event.target.value);
   };
+  const handlerClickClear = (): void => {
+    setNotes(notes.filter((note) => !note.isFinished));
+  };
+
+  const notesLeft = (): number => notes.filter((note) => !note.isFinished).length;
 
   return (
     <div className="list">
@@ -59,9 +64,10 @@ const List = (): ReactElement => {
           )}
       </div>
       <ControlPanel
-        notes={notes}
+        notesLeft={notesLeft()}
         toggle={toggle}
         handlerChangeToggle={handlerChangeToggle}
+        handlerClickClear={handlerClickClear}
       ></ControlPanel>
     </div>
   );

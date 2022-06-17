@@ -29,12 +29,12 @@ const Input: React.FC<InputType> = (props): ReactElement => {
       <div className="input__icon-block">
         <div className="input__icon-block_icon"></div>
       </div>
-      <form onSubmit={onHandlerSubmit}>
+      <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => onHandlerSubmit(event)}>
         <input
           className="input__search"
           ref={inputRef}
           type="search"
-          onChange={onHandlerChangeInput}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => onHandlerChangeInput(event)}
           placeholder="What needs to be done?"
         ></input>
       </form>

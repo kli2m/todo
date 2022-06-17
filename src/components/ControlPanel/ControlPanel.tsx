@@ -1,17 +1,19 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
+import { Todo } from 'interfaces/Todo';
 import './ControlPanel.scss';
 
-const ControlPanel = (): ReactElement => {
-  const [toggle, setToggle] = useState<string>('All');
+interface ControlPanelType {
+  notes: Todo[];
+  toggle: string;
+  handleChangeToggle: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-  const handleChangeToggle = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setToggle(event.target.value);
-  };
-
+const ControlPanel: React.FC<ControlPanelType> = (props): ReactElement => {
+  const { notes, toggle, handleChangeToggle } = props;
   return (
     <div className="control">
       <div className="control__info-mess">
-        <span>2 items left</span>
+        <span>{notes.length} items left</span>
       </div>
       <div className="control__sort-box">
         <div className="control__sort-box_item all">
@@ -21,7 +23,7 @@ const ControlPanel = (): ReactElement => {
             id="all"
             name="sort"
             checked={toggle === 'All'}
-            onChange={handleChangeToggle}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleChangeToggle(event)}
           ></input>
           <label htmlFor="all">All</label>
         </div>
@@ -32,7 +34,7 @@ const ControlPanel = (): ReactElement => {
             id="active"
             name="sort"
             checked={toggle === 'Active'}
-            onChange={handleChangeToggle}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleChangeToggle(event)}
           ></input>
           <label htmlFor="active">Active</label>
         </div>
@@ -43,7 +45,7 @@ const ControlPanel = (): ReactElement => {
             id="completed"
             name="sort"
             checked={toggle === 'Completed'}
-            onChange={handleChangeToggle}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleChangeToggle(event)}
           ></input>
           <label htmlFor="completed">Completed</label>
         </div>

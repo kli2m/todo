@@ -13,19 +13,18 @@ const Note: React.FC<NoteType> = (props): ReactElement => {
   const { text, isFinished } = note;
 
   const [isDone, setIsDone] = useState<boolean>(isFinished);
-  useEffect(() => {
-    onHandlerClickByNote(index, isDone);
-  }, [isDone]);
-  const inputClass = isDone ? 'done' : 'active';
+  useEffect(() => {});
+  const inputClass = isFinished ? 'done' : 'active';
 
   const onHanderClick = (): void => {
     setIsDone(!isDone);
+    onHandlerClickByNote(index, isDone);
   };
 
   return (
-    <div className="note" onClick={onHanderClick}>
+    <div className="note" onClick={() => onHanderClick()}>
       <div className="note__icon-block">
-        {isDone && <div className="note__icon-block_icon"></div>}
+        {isFinished && <div className="note__icon-block_icon"></div>}
       </div>
       <p className={`note__text ${inputClass}`}>{text}</p>
     </div>

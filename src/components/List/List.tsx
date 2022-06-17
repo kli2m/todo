@@ -22,7 +22,7 @@ const List = (): ReactElement => {
     setNotes(newNotes);
   };
 
-  const handleChangeToggle = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handlerChangeToggle = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setToggle(event.target.value);
   };
 
@@ -61,7 +61,7 @@ const List = (): ReactElement => {
       <ControlPanel
         notes={notes}
         toggle={toggle}
-        handleChangeToggle={handleChangeToggle}
+        handlerChangeToggle={handlerChangeToggle}
       ></ControlPanel>
     </div>
   );

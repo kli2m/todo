@@ -5,11 +5,11 @@ import './ControlPanel.scss';
 interface ControlPanelType {
   notes: Todo[];
   toggle: string;
-  handleChangeToggle: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handlerChangeToggle: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const ControlPanel: React.FC<ControlPanelType> = (props): ReactElement => {
-  const { notes, toggle, handleChangeToggle } = props;
+  const { notes, toggle, handlerChangeToggle } = props;
   return (
     <div className="control">
       <div className="control__info-mess">
@@ -23,7 +23,7 @@ const ControlPanel: React.FC<ControlPanelType> = (props): ReactElement => {
             id="all"
             name="sort"
             checked={toggle === 'All'}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleChangeToggle(event)}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => handlerChangeToggle(event)}
           ></input>
           <label htmlFor="all">All</label>
         </div>
@@ -34,7 +34,7 @@ const ControlPanel: React.FC<ControlPanelType> = (props): ReactElement => {
             id="active"
             name="sort"
             checked={toggle === 'Active'}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleChangeToggle(event)}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => handlerChangeToggle(event)}
           ></input>
           <label htmlFor="active">Active</label>
         </div>
@@ -45,13 +45,13 @@ const ControlPanel: React.FC<ControlPanelType> = (props): ReactElement => {
             id="completed"
             name="sort"
             checked={toggle === 'Completed'}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleChangeToggle(event)}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => handlerChangeToggle(event)}
           ></input>
           <label htmlFor="completed">Completed</label>
         </div>
       </div>
       <div className="control__clear">
-        <button className="control__clear_btn">Clear completed</button>
+        <button className="control__clear_btn" >Clear completed</button>
       </div>
     </div>
   );
